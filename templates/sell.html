@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <h4>What do you want to sell?</h4>
+        <select required class="form-select w-50 mx-auto" name="symbol">
+            <option selected disabled value="">symbol</option>
+            {% for row in rows %}
+                <option value={{ row.stock }}>{{ row.stock }}</option>
+            {% endfor %}
+        </select>
+        <div class="my-4">
+            <input autocomplete="off" required autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Numbers of shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">SELL</button>
+    </form>
+{% endblock %}

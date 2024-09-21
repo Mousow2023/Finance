@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <h3>Assetes</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Stocks</th>
+                <th>Number of Shares</th>
+                <th>Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                {% if row['shares'] > 0 %}
+                    <tr>
+                        <td>{{ row.stock }}</td>
+                        <td>{{ row.shares }}</td>
+                        <td>{{ prices_list[loop.index0] }}</td>
+                        <td>{{ total_values[loop.index0] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr class="mt-5 w-60">
+    <h3>Balance</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Current balance</th>
+                <th>Total Assets</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ cash }}</td>
+                <td>{{ grand_total }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
